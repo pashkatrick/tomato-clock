@@ -1,5 +1,5 @@
 # 🍅 Tomato Timer
-[![PyPI version tomato-timer](https://badge.fury.io/py/tomato-clock.svg)](https://pypi.python.org/pypi/tomato-timer/)
+[![PyPI version tomato-timer](https://badge.fury.io/py/tomato-timer.svg)](https://pypi.python.org/pypi/tomato-timer/)
 
 Tomato Timer is a simple command line pomodoro app.
 
