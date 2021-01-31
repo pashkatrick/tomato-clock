@@ -1,6 +1,5 @@
 # 🍅 Tomato Timer
-[![Python package CI tomato-clock](https://github.com/coolcode/tomato-timer/workflows/Python%20package/badge.svg?branch=master)](https://github.com/coolcode/tomato-clock/actions)
-[![PyPI version tomato-clock](https://badge.fury.io/py/tomato-clock.svg)](https://pypi.python.org/pypi/tomato-clock/)
+[![PyPI version tomato-timer](https://badge.fury.io/py/tomato-clock.svg)](https://pypi.python.org/pypi/tomato-timer/)
 
 Tomato Timer is a simple command line pomodoro app.
 
@@ -10,13 +9,13 @@ Install python from https://www.python.org/
 
 - Install via pip:
 ```
-$ pip install tomato-clock
+$ pip install tomato-timer
 ```
 
 - Install via source code:
 ```
 $ git clone https://github.com/pashkatrick/tomato-timer.git
-$ cd tomato-clock
+$ cd tomato-timer
 $ chmod +x tomato.py 
 ```
 
@@ -77,12 +76,3 @@ see this link: [say](http://manpages.ubuntu.com/manpages/trusty/man1/say.1.html)
 ```
 sudo apt-get install gnustep-gui-runtime
 ```
-
-
-## Package & Publish
-```
-pip install setuptools wheel twine
-rm -rf dist && python setup.py sdist bdist_wheel
-twine upload dist/*
-```
-
