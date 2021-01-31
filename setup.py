@@ -8,19 +8,19 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 description = "Tomato Clock is a simple command line pomodoro app"
-version = "0.0.10"
+version = "1.0.0"
 
 setup(
     name="tomato-clock",
     version=version,
-    author="Bruce Lee",
-    author_email="bruce.meerkat@gmail.com",
+    author="pashkatrick",
+    author_email="me@pshktrck.ru",
     description=description,
     long_description=long_description,
     long_description_content_type='text/markdown',
     license="MIT",
     keywords="pomodoro tomato tomato-timer terminal terminal-app pomodoro-timer",
-    url="https://github.com/coolcode/tomato-clock",
+    url="https://github.com/pashkatrick/tomato-clock",
     classifiers=['Intended Audience :: Science/Research',
                  'Intended Audience :: Developers',
                  'License :: OSI Approved :: MIT License',

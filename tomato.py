@@ -1,47 +1,40 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-# Pomodoro 番茄工作法 https://en.wikipedia.org/wiki/Pomodoro_Technique
 # ====== 🍅 Tomato Clock =======
-# ./tomato.py         # start a 25 minutes tomato clock + 5 minutes break
-# ./tomato.py -t      # start a 25 minutes tomato clock
-# ./tomato.py -t <n>  # start a <n> minutes tomato clock
-# ./tomato.py -b      # take a 5 minutes break
-# ./tomato.py -b <n>  # take a <n> minutes break
-# ./tomato.py -h      # help
+# ./tomato.py         # start a 30 minutes tomato clock + 10 minutes break in 9 times
+# ./tomato.py --work 25 --rest 5 --loop 4      # start a 25 minutes tomato clock + 5 minutes break in 4 times
 
 
 import sys
 import time
 import subprocess
+import argparse
 
-WORK_MINUTES = 25
-BREAK_MINUTES = 5
+WORK_MINUTES = 30
+BREAK_MINUTES = 10
+LOOP_COUNT = 9
+
+
+parser = argparse.ArgumentParser()
 
 
 def main():
     try:
+        parser.add_argument("-w", "--work", help="work minutes", type=int)        
+        parser.add_argument("-r", "--rest", help="break minutes", type=int)
+        parser.add_argument("-l", "--loop", help="loop count", type=int)
+        args = parser.parse_args()
         if len(sys.argv) <= 1:
-            print(f'🍅 tomato {WORK_MINUTES} minutes. Ctrl+C to exit')
-            tomato(WORK_MINUTES, 'It is time to take a break')
-            print(f'🛀 break {BREAK_MINUTES} minutes. Ctrl+C to exit')
-            tomato(BREAK_MINUTES, 'It is time to work')
+            loop()
 
-        elif sys.argv[1] == '-t':
-            minutes = int(sys.argv[2]) if len(sys.argv) > 2 else WORK_MINUTES
-            print(f'🍅 tomato {minutes} minutes. Ctrl+C to exit')
-            tomato(minutes, 'It is time to take a break')
-
-        elif sys.argv[1] == '-b':
-            minutes = int(sys.argv[2]) if len(sys.argv) > 2 else BREAK_MINUTES
-            print(f'🛀 break {minutes} minutes. Ctrl+C to exit')
-            tomato(minutes, 'It is time to work')
-
-        elif sys.argv[1] == '-h':
-            help()
-
+        elif len(sys.argv) > 1:
+            work = args.work if args.work else WORK_MINUTES
+            rest = args.rest if args.rest else BREAK_MINUTES
+            loops = args.loop if args.loop else LOOP_COUNT
+            loop(work, rest, loops)
+        
         else:
-            help()
+            print('Something wrong')
+            exit()
 
     except KeyboardInterrupt:
         print('\n👋 goodbye')
@@ -49,6 +42,12 @@ def main():
         print(ex)
         exit(1)
 
+def loop(_work, _break, _loops):
+    for i in range(0, _loops-1):
+        print(f'🍅 tomato {_work} minutes. Ctrl+C to exit')
+        tomato(_work, 'It is time to take a break')
+        print(f'🛀 break {_break} minutes. Ctrl+C to exit')
+        tomato(_break, 'It is time to work again')
 
 def tomato(minutes, notify_msg):
     start_time = time.perf_counter()
@@ -65,6 +64,7 @@ def tomato(minutes, notify_msg):
         time.sleep(1)
 
     notify_me(notify_msg)
+        
 
 
 def progressbar(curr, total, duration=10, extra=''):
@@ -94,11 +94,11 @@ def notify_me(msg):
     try:
         if sys.platform == 'darwin':
             # macos desktop notification
-            subprocess.run(['terminal-notifier', '-title', '🍅', '-message', msg])
+            subprocess.run(['terminal-notifier', '-message', '🍅 ' + msg])
             subprocess.run(['say', '-v', 'Daniel', msg])
         elif sys.platform.startswith('linux'):
             # ubuntu desktop notification
-            subprocess.Popen(["notify-send", '🍅', msg])
+            subprocess.Popen(["notify-send", '🍅 ' + msg])
         else:
             # windows?
             # TODO: windows notification
@@ -107,19 +107,6 @@ def notify_me(msg):
     except:
         # skip the notification error
         pass
-
-
-def help():
-    appname = sys.argv[0]
-    appname = appname if appname.endswith('.py') else 'tomato'  # tomato is pypi package
-    print('====== 🍅 Tomato Clock =======')
-    print(f'{appname}         # start a {WORK_MINUTES} minutes tomato clock + {BREAK_MINUTES} minutes break')
-    print(f'{appname} -t      # start a {WORK_MINUTES} minutes tomato clock')
-    print(f'{appname} -t <n>  # start a <n> minutes tomato clock')
-    print(f'{appname} -b      # take a {BREAK_MINUTES} minutes break')
-    print(f'{appname} -b <n>  # take a <n> minutes break')
-    print(f'{appname} -h      # help')
-
 
 if __name__ == "__main__":
     main()

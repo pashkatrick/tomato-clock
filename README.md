@@ -4,8 +4,6 @@
 
 Tomato Clock is a simple command line pomodoro app.
 
-Pomodoro 番茄工作法 https://en.wikipedia.org/wiki/Pomodoro_Technique
-
 ## Installation
 
 Install python from https://www.python.org/
@@ -17,7 +15,7 @@ $ pip install tomato-clock
 
 - Install via source code:
 ```
-$ git clone https://github.com/coolcode/tomato-clock.git
+$ git clone https://github.com/pashkatrick/tomato-clock.git
 $ cd tomato-clock
 $ chmod +x tomato.py 
 ```
@@ -27,23 +25,17 @@ $ chmod +x tomato.py
 - if you install via pip
 
 ```
+$ tomato                              # start a 30 minutes tomato clock + 10 minutes break in 9 times
+$ tomato --work 25 --rest 5 --loop 4   # start a 25 minutes tomato clock + 5 minutes break in 4 times
+$ tomato -h                            # help
 
-$ tomato         # start a 25 minutes tomato clock + 5 minutes break
-$ tomato -t      # start a 25 minutes tomato clock
-$ tomato -t <n>  # start a <n> minutes tomato clock
-$ tomato -b      # take a 5 minutes break
-$ tomato -b <n>  # take a <n> minutes break
-$ tomato -h      # help
 ```
 
 - if you install via source code
 ```
-$ ./tomato.py         # start a 25 minutes tomato clock + 5 minutes break
-$ ./tomato.py -t      # start a 25 minutes tomato clock
-$ ./tomato.py -t <n>  # start a <n> minutes tomato clock
-$ ./tomato.py -b      # take a 5 minutes break
-$ ./tomato.py -b <n>  # take a <n> minutes break
-$ ./tomato.py -h      # help
+$ ./tomato.py                               # start a 30 minutes tomato clock + 10 minutes break in 9 times
+$ ./tomato.py --work 25 --rest 5 --loop 4   # start a 25 minutes tomato clock + 5 minutes break in 4 times
+$ ./tomato.py -h                            # help
 ```
 
 ## Terminal Output
