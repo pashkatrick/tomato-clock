@@ -26,16 +26,16 @@ $ chmod +x tomato.py
 
 ```
 $ tomato                              # start a 30 minutes tomato clock + 10 minutes break in 9 times
-$ tomato --work 25 --rest 5 --loop 4   # start a 25 minutes tomato clock + 5 minutes break in 4 times
-$ tomato -h                            # help
+$ tomato --work 25 --rest 5 --loop 4  # start a 25 minutes tomato clock + 5 minutes break in 4 times
+$ tomato -h                           # help
 
 ```
 
 - if you install via source code
 ```
-$ ./tomato.py                               # start a 30 minutes tomato clock + 10 minutes break in 9 times
-$ ./tomato.py --work 25 --rest 5 --loop 4   # start a 25 minutes tomato clock + 5 minutes break in 4 times
-$ ./tomato.py -h                            # help
+$ ./tomato.py                              # start a 30 minutes tomato clock + 10 minutes break in 9 times
+$ ./tomato.py --work 25 --rest 5 --loop 4  # start a 25 minutes tomato clock + 5 minutes break in 4 times
+$ ./tomato.py -h                           # help
 ```
 
 ## Terminal Output
