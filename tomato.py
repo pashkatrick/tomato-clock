@@ -24,7 +24,7 @@ def main():
         parser.add_argument("-l", "--loop", help="loop count", type=int)
         args = parser.parse_args()
         if len(sys.argv) <= 1:
-            loop()
+            loop(WORK_MINUTES, BREAK_MINUTES, LOOP_COUNT)
 
         elif len(sys.argv) > 1:
             work = args.work if args.work else WORK_MINUTES
