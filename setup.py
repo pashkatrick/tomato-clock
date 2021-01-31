@@ -8,7 +8,7 @@ with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 description = "Tomato Timer is a simple command line pomodoro app"
-version = "1.0.0"
+version = "1.0.2"
 
 setup(
     name="tomato-timer",
