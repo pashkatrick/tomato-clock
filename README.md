@@ -1,8 +1,8 @@
-# 🍅 Tomato Clock
-[![Python package CI tomato-clock](https://github.com/coolcode/tomato-clock/workflows/Python%20package/badge.svg?branch=master)](https://github.com/coolcode/tomato-clock/actions)
+# 🍅 Tomato Timer
+[![Python package CI tomato-clock](https://github.com/coolcode/tomato-timer/workflows/Python%20package/badge.svg?branch=master)](https://github.com/coolcode/tomato-clock/actions)
 [![PyPI version tomato-clock](https://badge.fury.io/py/tomato-clock.svg)](https://pypi.python.org/pypi/tomato-clock/)
 
-Tomato Clock is a simple command line pomodoro app.
+Tomato Timer is a simple command line pomodoro app.
 
 ## Installation
 
@@ -15,7 +15,7 @@ $ pip install tomato-clock
 
 - Install via source code:
 ```
-$ git clone https://github.com/pashkatrick/tomato-clock.git
+$ git clone https://github.com/pashkatrick/tomato-timer.git
 $ cd tomato-clock
 $ chmod +x tomato.py 
 ```
