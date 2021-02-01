@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # ====== 🍅 Tomato Clock =======
-# ./tomato.py         # start a 30 minutes tomato clock + 10 minutes break in 9 times
+# ./tomato.py         # start a 20 minutes tomato clock + 10 minutes break in 9 times
 # ./tomato.py --work 25 --rest 5 --loop 4      # start a 25 minutes tomato clock + 5 minutes break in 4 times
 
 
@@ -9,7 +9,7 @@ import time
 import subprocess
 import argparse
 
-WORK_MINUTES = 30
+WORK_MINUTES = 20
 BREAK_MINUTES = 10
 LOOP_COUNT = 9
 
@@ -43,11 +43,17 @@ def main():
         exit(1)
 
 def loop(_work, _break, _loops):
-    for i in range(0, _loops-1):
-        print(f'🍅 tomato {_work} minutes. Ctrl+C to exit')
-        tomato(_work, 'It is time to take a break')
-        print(f'🛀 break {_break} minutes. Ctrl+C to exit')
-        tomato(_break, 'It is time to work again')
+    for i in range(0, _loops):
+        if i % 3 == 0:
+            print(f'🍅 tomato {_work} minutes. Ctrl+C to exit')
+            tomato(_work, 'It is time to take a break')
+            print(f'🛀 break {_break + 10} minutes. Ctrl+C to exit')
+            tomato(_break + 10, 'It is time to work again')            
+        else:
+            print(f'🍅 tomato {_work} minutes. Ctrl+C to exit')
+            tomato(_work, 'It is time to take a break')
+            print(f'🛀 break {_break} minutes. Ctrl+C to exit')
+            tomato(_break, 'It is time to work again')
 
 def tomato(minutes, notify_msg):
     start_time = time.perf_counter()

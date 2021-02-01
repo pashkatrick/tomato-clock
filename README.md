@@ -1,5 +1,5 @@
 # 🍅 Tomato Timer
-[![PyPI version tomato-timer](https://badge.fury.io/py/tomato-timer.svg)](https://pypi.python.org/pypi/tomato-timer/)
+[![PyPI version](https://badge.fury.io/py/tomato-timer.svg)](https://badge.fury.io/py/tomato-timer)
 
 Tomato Timer is a simple command line pomodoro app.
 
@@ -24,7 +24,7 @@ $ chmod +x tomato.py
 - if you install via pip
 
 ```
-$ tomato                              # start a 30 minutes tomato clock + 10 minutes break in 9 times
+$ tomato                              # start a 20 minutes tomato clock + 10 minutes break in 9 times
 $ tomato --work 25 --rest 5 --loop 4  # start a 25 minutes tomato clock + 5 minutes break in 4 times
 $ tomato -h                           # help
 
