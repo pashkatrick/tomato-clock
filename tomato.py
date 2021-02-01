@@ -9,9 +9,9 @@ import time
 import subprocess
 import argparse
 
-WORK_MINUTES = 20
-BREAK_MINUTES = 10
-LOOP_COUNT = 9
+WORK_MINUTES = 25
+BREAK_MINUTES = 5
+LOOP_COUNT = 7
 
 
 parser = argparse.ArgumentParser()
@@ -44,16 +44,10 @@ def main():
 
 def loop(_work, _break, _loops):
     for i in range(0, _loops):
-        if i % 3 == 0:
-            print(f'🍅 tomato {_work} minutes. Ctrl+C to exit')
-            tomato(_work, 'It is time to take a break')
-            print(f'🛀 break {_break + 10} minutes. Ctrl+C to exit')
-            tomato(_break + 10, 'It is time to work again')            
-        else:
-            print(f'🍅 tomato {_work} minutes. Ctrl+C to exit')
-            tomato(_work, 'It is time to take a break')
-            print(f'🛀 break {_break} minutes. Ctrl+C to exit')
-            tomato(_break, 'It is time to work again')
+        print(f'🍅 tomato {_work} minutes. Ctrl+C to exit')
+        tomato(_work, 'It is time to take a break')
+        print(f'🛀 break {_break} minutes. Ctrl+C to exit')
+        tomato(_break, 'It is time to work again')
 
 def tomato(minutes, notify_msg):
     start_time = time.perf_counter()
